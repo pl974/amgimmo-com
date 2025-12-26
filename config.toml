@@ -1,0 +1,125 @@
+################################################################################
+# AMG Immobilier — Hugo Configuration
+# Site de contenu premium sur l'immobilier en Haute-Savoie
+################################################################################
+
+baseURL = "https://www.amgimmo.com/"
+languageCode = "fr-FR"
+title = "AMG Immobilier"
+theme = "flavor"
+
+# Pagination
+[pagination]
+  pagerSize = 12
+  path = "page"
+
+# Taxonomies
+[taxonomies]
+  category = "categories"
+  tag = "tags"
+
+# Paramètres du site
+[params]
+  # Meta
+  description = "Actualités et conseils immobiliers en Haute-Savoie. Marché du Pays Rochois, vie frontalière, investissement et guides pratiques pour votre projet immobilier dans les Alpes."
+  author = "Rédaction AMG"
+  
+  # Hero
+  tagline = "Immobilier Haute-Savoie"
+  headline = "Votre guide immobilier au cœur des <span class=\"hero__highlight\">Alpes</span>"
+  
+  # Social (anonymisé)
+  # twitter = ""
+  # facebook = ""
+  # linkedin = ""
+  
+  # Footer
+  copyright = "AMG Immobilier"
+  established = "2003"
+  
+  # Contact (anonymisé - pas d'informations personnelles)
+  # email = ""
+  # phone = ""
+  # address = ""
+
+# Menus
+[menus]
+
+  [[menus.main]]
+    identifier = "immobilier"
+    name = "Marché"
+    url = "/immobilier/"
+    weight = 1
+
+  [[menus.main]]
+    identifier = "region"
+    name = "Région"
+    url = "/region/"
+    weight = 2
+
+  [[menus.main]]
+    identifier = "conseils"
+    name = "Conseils"
+    url = "/conseils/"
+    weight = 3
+
+  [[menus.main]]
+    identifier = "amenagement"
+    name = "Habitat"
+    url = "/amenagement/"
+    weight = 4
+
+  [[menus.footer]]
+    identifier = "mentions"
+    name = "Mentions légales"
+    url = "/mentions-legales/"
+    weight = 1
+
+  [[menus.footer]]
+    identifier = "confidentialite"
+    name = "Confidentialité"
+    url = "/confidentialite/"
+    weight = 2
+
+  [[menus.footer]]
+    identifier = "contact"
+    name = "Contact"
+    url = "/contact/"
+    weight = 3
+
+# Build settings
+[build]
+  writeStats = true
+
+# Markup
+[markup]
+  [markup.goldmark]
+    [markup.goldmark.renderer]
+      unsafe = true
+  [markup.highlight]
+    style = "github"
+    lineNos = false
+
+# Outputs
+[outputs]
+  home = ["HTML", "RSS"]
+  section = ["HTML", "RSS"]
+  taxonomy = ["HTML"]
+  term = ["HTML"]
+
+# Permalinks
+[permalinks]
+  immobilier = "/immobilier/:filename/"
+  region = "/region/:filename/"
+  conseils = "/conseils/:filename/"
+  amenagement = "/amenagement/:filename/"
+
+# Minification
+[minify]
+  disableCSS = false
+  disableHTML = false
+  disableJS = false
+  disableJSON = false
+  disableSVG = false
+  disableXML = false
+  minifyOutput = true

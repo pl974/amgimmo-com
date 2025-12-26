@@ -1,0 +1,14 @@
+# theme.toml — AMG IMMO Flavor Theme
+
+name = "Flavor"
+license = "MIT"
+licenselink = "https://github.com/amgimmo/flavor/blob/main/LICENSE"
+description = "Theme Hugo premium pour sites immobiliers"
+homepage = "https://www.amgimmo.com/"
+tags = ["immobilier", "real-estate", "business", "responsive", "seo"]
+features = ["responsive", "seo", "slider", "cards", "stats"]
+min_version = "0.120.0"
+
+[author]
+  name = "AMG Immo"
+  homepage = "https://www.amgimmo.com/"

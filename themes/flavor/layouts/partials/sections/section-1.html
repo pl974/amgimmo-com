@@ -1,0 +1,95 @@
+{{/* 
+  Section 1: Categories Grid
+  
+  Grille de catégories avec images et descriptions.
+  Navigation principale vers les sections du site.
+  Best for: Portails, sites multi-thèmes
+*/}}
+
+{{ $sections := .Site.Sections }}
+
+<section class="sec sec--categories" id="categories">
+  <div class="sec__container">
+    
+    {{/* Header */}}
+    <header class="sec__header">
+      <span class="sec__eyebrow">Explorer</span>
+      <h2 class="sec__title">Nos rubriques</h2>
+      <p class="sec__subtitle">Retrouvez tous nos contenus organisés par thématique.</p>
+    </header>
+    
+    {{/* Grille de catégories */}}
+    <div class="categories">
+      
+      {{/* Marché immobilier */}}
+      <a href="/immobilier/" class="categories__item">
+        <figure class="categories__media">
+          <img 
+            src="/images/appartement-montagne.jpg" 
+            alt="Marché immobilier" 
+            class="categories__img"
+            loading="lazy"
+          >
+          <div class="categories__overlay"></div>
+        </figure>
+        <div class="categories__body">
+          <h3 class="categories__title">Marché</h3>
+          <p class="categories__desc">Analyses des prix et tendances</p>
+        </div>
+      </a>
+      
+      {{/* Région */}}
+      <a href="/region/" class="categories__item">
+        <figure class="categories__media">
+          <img 
+            src="/images/village-alpin.jpg" 
+            alt="Région Haute-Savoie" 
+            class="categories__img"
+            loading="lazy"
+          >
+          <div class="categories__overlay"></div>
+        </figure>
+        <div class="categories__body">
+          <h3 class="categories__title">Région</h3>
+          <p class="categories__desc">Haute-Savoie et Pays Rochois</p>
+        </div>
+      </a>
+      
+      {{/* Conseils */}}
+      <a href="/conseils/" class="categories__item">
+        <figure class="categories__media">
+          <img 
+            src="/images/signature-immobilier.jpg" 
+            alt="Conseils achat" 
+            class="categories__img"
+            loading="lazy"
+          >
+          <div class="categories__overlay"></div>
+        </figure>
+        <div class="categories__body">
+          <h3 class="categories__title">Conseils</h3>
+          <p class="categories__desc">Guides pour votre projet</p>
+        </div>
+      </a>
+      
+      {{/* Aménagement */}}
+      <a href="/amenagement/" class="categories__item">
+        <figure class="categories__media">
+          <img 
+            src="/images/terrasse-montagne.jpg" 
+            alt="Aménagement habitat" 
+            class="categories__img"
+            loading="lazy"
+          >
+          <div class="categories__overlay"></div>
+        </figure>
+        <div class="categories__body">
+          <h3 class="categories__title">Habitat</h3>
+          <p class="categories__desc">Aménagement et rénovation</p>
+        </div>
+      </a>
+      
+    </div>
+    
+  </div>
+</section>

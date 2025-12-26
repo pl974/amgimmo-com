@@ -1,0 +1,80 @@
+{{/*
+  Footer 0: 4 Colonnes
+  
+  Footer complet avec brand, navigation et liens légaux.
+  Best for: Sites corporate, complets
+*/}}
+
+<footer class="footer" role="contentinfo">
+  <div class="footer__container">
+    
+    {{/* Grille principale */}}
+    <div class="footer__grid">
+      
+      {{/* Colonne Brand */}}
+      <div class="footer__col footer__col--brand">
+        <a href="/" class="footer__logo">
+          {{ .Site.Title }}
+        </a>
+        <p class="footer__tagline">
+          {{ .Site.Params.description | truncate 120 }}
+        </p>
+      </div>
+      
+      {{/* Colonne Navigation */}}
+      <div class="footer__col">
+        <h3 class="footer__heading">Rubriques</h3>
+        <ul class="footer__list">
+          {{ range .Site.Menus.main }}
+          <li class="footer__item">
+            <a href="{{ .URL }}" class="footer__link">{{ .Name }}</a>
+          </li>
+          {{ end }}
+        </ul>
+      </div>
+      
+      {{/* Colonne Ressources */}}
+      <div class="footer__col">
+        <h3 class="footer__heading">Ressources</h3>
+        <ul class="footer__list">
+          <li class="footer__item">
+            <a href="/immobilier/" class="footer__link">Analyses marché</a>
+          </li>
+          <li class="footer__item">
+            <a href="/conseils/" class="footer__link">Guides pratiques</a>
+          </li>
+          <li class="footer__item">
+            <a href="/region/" class="footer__link">Découvrir la région</a>
+          </li>
+          <li class="footer__item">
+            <a href="/amenagement/" class="footer__link">Aménagement</a>
+          </li>
+        </ul>
+      </div>
+      
+      {{/* Colonne Légal */}}
+      <div class="footer__col">
+        <h3 class="footer__heading">Informations</h3>
+        <ul class="footer__list">
+          {{ range .Site.Menus.footer }}
+          <li class="footer__item">
+            <a href="{{ .URL }}" class="footer__link">{{ .Name }}</a>
+          </li>
+          {{ end }}
+          <li class="footer__item">
+            <a href="/a-propos/" class="footer__link">À propos</a>
+          </li>
+        </ul>
+      </div>
+      
+    </div>
+    
+    {{/* Barre inférieure */}}
+    <div class="footer__bottom">
+      <p class="footer__copyright">
+        &copy; {{ now.Year }} {{ .Site.Params.copyright | default .Site.Title }}. Tous droits réservés.
+      </p>
+    </div>
+    
+  </div>
+</footer>

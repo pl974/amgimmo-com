@@ -1,0 +1,39 @@
+{{/* 
+  Section 0: Latest Articles
+  
+  Grille d'articles récents avec header de section.
+  Affiche les 6 derniers articles du site.
+  Best for: Homepage, blog principal
+*/}}
+
+{{ $pages := .pages | default (first 6 (where .Site.RegularPages "Section" "ne" "")) }}
+{{ $gridType := .gridType | default 0 }}
+{{ $cardType := .cardType | default 3 }}
+
+<section class="sec sec--latest" id="articles">
+  <div class="sec__container">
+    
+    {{/* Header de section */}}
+    <header class="sec__header">
+      <span class="sec__eyebrow">Actualités</span>
+      <h2 class="sec__title">Derniers articles</h2>
+      <p class="sec__subtitle">Analyses, conseils et tendances du marché immobilier en Haute-Savoie.</p>
+    </header>
+    
+    {{/* Grille d'articles */}}
+    <div class="sec__content">
+      {{ partial (printf "grids/grid-%d.html" $gridType) (dict "pages" $pages "cardType" $cardType "Site" .Site) }}
+    </div>
+    
+    {{/* Lien vers tous les articles */}}
+    <footer class="sec__footer">
+      <a href="/immobilier/" class="sec__more">
+        Tous les articles
+        <svg class="sec__more-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
+        </svg>
+      </a>
+    </footer>
+    
+  </div>
+</section>

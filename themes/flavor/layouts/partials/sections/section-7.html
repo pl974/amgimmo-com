@@ -1,0 +1,47 @@
+{{/* 
+  Section 7: Newsletter Banner
+  
+  Bannière pleine largeur avec formulaire d'inscription.
+  Design sobre et efficace.
+  Best for: Capture d'emails, engagement
+*/}}
+
+<section class="sec sec--newsletter" id="newsletter">
+  <div class="sec__container">
+    
+    <div class="newsletter">
+      
+      {{/* Contenu */}}
+      <div class="newsletter__content">
+        <h2 class="newsletter__title">Restez informé</h2>
+        <p class="newsletter__text">
+          Recevez nos analyses du marché et conseils immobiliers directement dans votre boîte mail.
+        </p>
+      </div>
+      
+      {{/* Formulaire */}}
+      <form class="newsletter__form" action="#" method="POST">
+        <div class="newsletter__field">
+          <label for="newsletter-email" class="sr-only">Adresse email</label>
+          <input 
+            type="email" 
+            id="newsletter-email" 
+            name="email" 
+            class="newsletter__input" 
+            placeholder="Votre adresse email"
+            required
+            autocomplete="email"
+          >
+          <button type="submit" class="newsletter__btn">
+            S'inscrire
+          </button>
+        </div>
+        <p class="newsletter__privacy">
+          Nous respectons votre vie privée. Désabonnement possible à tout moment.
+        </p>
+      </form>
+      
+    </div>
+    
+  </div>
+</section>

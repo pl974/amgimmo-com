@@ -1,0 +1,21 @@
+{{ define "main" }}
+
+{{/* Hero Section */}}
+{{ $heroType := .Site.Data.spin.components.hero | default 2 }}
+{{ partial (printf "heroes/hero-%d.html" $heroType) . }}
+
+{{/* Section 1: Latest Articles */}}
+{{ partial "sections/section-0.html" (dict 
+  "Site" .Site 
+  "pages" (first 6 .Site.RegularPages)
+  "gridType" (.Site.Data.spin.components.grid | default 0)
+  "cardType" (.Site.Data.spin.components.card | default 3)
+) }}
+
+{{/* Section 2: Categories */}}
+{{ partial "sections/section-1.html" . }}
+
+{{/* Section 3: Newsletter */}}
+{{ partial "sections/section-7.html" . }}
+
+{{ end }}

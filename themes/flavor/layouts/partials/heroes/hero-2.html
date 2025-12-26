@@ -1,0 +1,44 @@
+{{/* 
+  Hero 2: Minimal
+  
+  Hero typographique épuré avec focus sur le message.
+  Design éditorial sophistiqué sans image.
+  Best for: Sites premium, immobilier haut de gamme, éditoriaux
+*/}}
+
+<section class="hero hero--minimal">
+  <div class="hero__canvas">
+    
+    {{/* Décoration subtile */}}
+    <div class="hero__decoration" aria-hidden="true">
+      <div class="hero__line hero__line--1"></div>
+      <div class="hero__line hero__line--2"></div>
+    </div>
+    
+    {{/* Contenu principal */}}
+    <header class="hero__header">
+      <span class="hero__label">{{ .Site.Params.tagline | default "Magazine Immobilier" }}</span>
+      <h1 class="hero__statement">
+        {{ .Site.Params.headline | default "Votre guide immobilier au cœur des <span class=\"hero__highlight\">Alpes</span>" | safeHTML }}
+      </h1>
+      <p class="hero__subtitle">
+        Analyses du marché, conseils pratiques et guides pour réussir votre projet immobilier en Haute-Savoie.
+      </p>
+    </header>
+    
+    {{/* Navigation rapide */}}
+    <footer class="hero__footer">
+      <nav class="hero__quick-nav" aria-label="Accès rapide">
+        {{ range first 4 .Site.Menus.main }}
+        <a href="{{ .URL }}" class="hero__quick-link">
+          {{ .Name }}
+          <svg class="hero__quick-icon" width="12" height="12" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
+          </svg>
+        </a>
+        {{ end }}
+      </nav>
+    </footer>
+    
+  </div>
+</section>

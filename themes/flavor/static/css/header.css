@@ -1,0 +1,303 @@
+/* ==============================================================================
+   AMG IMMO — Header Modern Transparent
+   Elegance professionnelle avec effet glassmorphism au scroll
+   ============================================================================== */
+
+.site-header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: var(--z-fixed);
+  height: var(--header-height);
+  transition: all var(--transition-slow);
+}
+
+.site-header::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: var(--color-surface);
+  opacity: 0;
+  transition: opacity var(--transition-slow);
+}
+
+.site-header.scrolled::before {
+  opacity: 0.95;
+  backdrop-filter: blur(12px);
+}
+
+.site-header.scrolled {
+  height: var(--header-height-scrolled);
+  box-shadow: var(--shadow-md);
+}
+
+.header-inner {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 100%;
+  max-width: var(--container-xl);
+  margin: 0 auto;
+  padding: 0 var(--space-6);
+}
+
+/* Logo */
+.site-logo {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  text-decoration: none;
+  z-index: 10;
+}
+
+.logo-icon {
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--gradient-primary);
+  border-radius: var(--radius-md);
+  transition: transform var(--transition-fast);
+}
+
+.site-logo:hover .logo-icon {
+  transform: scale(1.05);
+}
+
+.logo-icon svg {
+  width: 24px;
+  height: 24px;
+  fill: var(--color-surface);
+}
+
+.logo-text {
+  font-family: var(--font-heading);
+  font-size: var(--text-xl);
+  font-weight: var(--font-bold);
+  color: var(--color-text);
+  letter-spacing: -0.02em;
+}
+
+.site-header:not(.scrolled) .logo-text {
+  color: var(--color-surface);
+}
+
+/* Navigation principale */
+.main-nav {
+  display: none;
+}
+
+@media (min-width: 1024px) {
+  .main-nav {
+    display: flex;
+    align-items: center;
+    gap: var(--space-1);
+  }
+}
+
+.nav-link {
+  display: block;
+  padding: var(--space-2) var(--space-4);
+  font-size: var(--text-sm);
+  font-weight: var(--font-medium);
+  color: var(--color-text);
+  text-decoration: none;
+  border-radius: var(--radius-md);
+  transition: all var(--transition-fast);
+  position: relative;
+}
+
+.site-header:not(.scrolled) .nav-link {
+  color: var(--color-surface);
+}
+
+.nav-link::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: var(--space-4);
+  right: var(--space-4);
+  height: 2px;
+  background: var(--color-accent);
+  transform: scaleX(0);
+  transition: transform var(--transition-fast);
+}
+
+.nav-link:hover::after,
+.nav-link.active::after {
+  transform: scaleX(1);
+}
+
+.nav-link:hover {
+  color: var(--color-primary);
+}
+
+.site-header:not(.scrolled) .nav-link:hover {
+  color: var(--color-accent);
+}
+
+/* CTA Header */
+.header-cta {
+  display: none;
+}
+
+@media (min-width: 1024px) {
+  .header-cta {
+    display: flex;
+    align-items: center;
+    gap: var(--space-4);
+  }
+}
+
+.header-phone {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  font-size: var(--text-sm);
+  font-weight: var(--font-medium);
+  color: var(--color-text);
+  text-decoration: none;
+}
+
+.site-header:not(.scrolled) .header-phone {
+  color: var(--color-surface);
+}
+
+.header-phone svg {
+  width: 18px;
+  height: 18px;
+}
+
+.header-phone:hover {
+  color: var(--color-accent);
+}
+
+/* Burger menu */
+.burger-btn {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 5px;
+  width: 28px;
+  height: 28px;
+  padding: 0;
+  background: none;
+  border: none;
+  cursor: pointer;
+  z-index: 10;
+}
+
+@media (min-width: 1024px) {
+  .burger-btn {
+    display: none;
+  }
+}
+
+.burger-line {
+  width: 100%;
+  height: 2px;
+  background: var(--color-text);
+  border-radius: var(--radius-full);
+  transition: all var(--transition-fast);
+}
+
+.site-header:not(.scrolled) .burger-line {
+  background: var(--color-surface);
+}
+
+.burger-btn.active .burger-line:nth-child(1) {
+  transform: translateY(7px) rotate(45deg);
+}
+
+.burger-btn.active .burger-line:nth-child(2) {
+  opacity: 0;
+}
+
+.burger-btn.active .burger-line:nth-child(3) {
+  transform: translateY(-7px) rotate(-45deg);
+}
+
+/* Mobile menu */
+.mobile-nav {
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: 100%;
+  max-width: 360px;
+  height: 100vh;
+  background: var(--color-surface);
+  padding: calc(var(--header-height) + var(--space-8)) var(--space-6) var(--space-8);
+  transform: translateX(100%);
+  transition: transform var(--transition-slow);
+  overflow-y: auto;
+  z-index: var(--z-modal);
+}
+
+.mobile-nav.open {
+  transform: translateX(0);
+}
+
+.mobile-nav-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.5);
+  opacity: 0;
+  visibility: hidden;
+  transition: all var(--transition-slow);
+  z-index: var(--z-modal-backdrop);
+}
+
+.mobile-nav-overlay.open {
+  opacity: 1;
+  visibility: visible;
+}
+
+.mobile-nav-link {
+  display: block;
+  padding: var(--space-4) 0;
+  font-size: var(--text-lg);
+  font-weight: var(--font-medium);
+  color: var(--color-text);
+  text-decoration: none;
+  border-bottom: 1px solid var(--color-border);
+}
+
+.mobile-nav-link:hover {
+  color: var(--color-primary);
+}
+
+.mobile-nav-cta {
+  margin-top: var(--space-8);
+}
+
+.mobile-nav-cta .btn {
+  width: 100%;
+  justify-content: center;
+}
+
+.mobile-nav-contact {
+  margin-top: var(--space-8);
+  padding-top: var(--space-6);
+  border-top: 1px solid var(--color-border);
+}
+
+.mobile-nav-contact a {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  padding: var(--space-3) 0;
+  color: var(--color-text-muted);
+  text-decoration: none;
+}
+
+.mobile-nav-contact a:hover {
+  color: var(--color-primary);
+}
+
+.mobile-nav-contact svg {
+  width: 20px;
+  height: 20px;
+}

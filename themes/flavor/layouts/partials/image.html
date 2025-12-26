@@ -1,0 +1,76 @@
+{{- /*
+  Image Partial — Génération d'images
+  
+  Si image frontmatter commence par "/images/" = image locale
+  Sinon = génération Unsplash dynamique
+*/ -}}
+{{- $page := .page -}}
+{{- $width := .width | default 600 -}}
+{{- $height := .height | default 375 -}}
+{{- $context := .context | default "card" -}}
+
+{{- /* Vérifier si une image locale est définie */ -}}
+{{- with $page.Params.image -}}
+  {{- if hasPrefix . "/images/" -}}
+    {{- . -}}
+  {{- else -}}
+    {{- /* Image slug défini mais pas locale - utiliser pour le hash */ -}}
+    {{- $hashInput := printf "%s-%s-%s" $page.Title . $context -}}
+    {{- $hash := md5 $hashInput -}}
+    {{- $images := slice "photo-1506905925346-21bda4d32df4" "photo-1580587771525-78b9dba3b914" "photo-1564013799919-ab600027ffc6" "photo-1600596542815-ffad4c1539a9" "photo-1600585154340-be6161a56a0c" "photo-1512917774080-9991f1c4c750" "photo-1600607687939-ce8a6c25118c" "photo-1600566753190-17f0baa2a6c3" "photo-1600585154526-990dced4db0d" "photo-1560448204-e02f11c3d0e2" "photo-1600573472591-ee6c8e695c75" "photo-1600047509807-ba8f99d2cdde" "photo-1583608205776-bfd35f0d9f83" "photo-1570129477492-45c003edd2be" "photo-1605276374104-dee2a0ed3cd6" "photo-1613490493576-7fde63acd811" "photo-1600210492493-0946911123ea" "photo-1512918728675-ed5a9ecdebfd" "photo-1600566752355-35792bedcfea" "photo-1600573472556-e636c2acda88" -}}
+    {{- $firstChar := substr $hash 0 1 -}}
+    {{- $index := 0 -}}
+    {{- if eq $firstChar "0" -}}{{- $index = 0 -}}
+    {{- else if eq $firstChar "1" -}}{{- $index = 1 -}}
+    {{- else if eq $firstChar "2" -}}{{- $index = 2 -}}
+    {{- else if eq $firstChar "3" -}}{{- $index = 3 -}}
+    {{- else if eq $firstChar "4" -}}{{- $index = 4 -}}
+    {{- else if eq $firstChar "5" -}}{{- $index = 5 -}}
+    {{- else if eq $firstChar "6" -}}{{- $index = 6 -}}
+    {{- else if eq $firstChar "7" -}}{{- $index = 7 -}}
+    {{- else if eq $firstChar "8" -}}{{- $index = 8 -}}
+    {{- else if eq $firstChar "9" -}}{{- $index = 9 -}}
+    {{- else if eq $firstChar "a" -}}{{- $index = 10 -}}
+    {{- else if eq $firstChar "b" -}}{{- $index = 11 -}}
+    {{- else if eq $firstChar "c" -}}{{- $index = 12 -}}
+    {{- else if eq $firstChar "d" -}}{{- $index = 13 -}}
+    {{- else if eq $firstChar "e" -}}{{- $index = 14 -}}
+    {{- else if eq $firstChar "f" -}}{{- $index = 15 -}}
+    {{- end -}}
+    {{- $index = mod $index (len $images) -}}
+    {{- $imageId := index $images $index -}}
+https://images.unsplash.com/{{ $imageId }}?w={{ $width }}&h={{ $height }}&fit=crop&auto=format&q=80&sig={{ $hash }}
+  {{- end -}}
+{{- else -}}
+  {{- /* Pas d'image définie - génération automatique */ -}}
+  {{- $pageTitle := $page.Title | default "default" -}}
+  {{- $pagePath := "" -}}
+  {{- with $page.File -}}
+    {{- $pagePath = .Path -}}
+  {{- end -}}
+  {{- $hashInput := printf "%s-%s-%s" $pageTitle $pagePath $context -}}
+  {{- $hash := md5 $hashInput -}}
+  {{- $images := slice "photo-1506905925346-21bda4d32df4" "photo-1580587771525-78b9dba3b914" "photo-1564013799919-ab600027ffc6" "photo-1600596542815-ffad4c1539a9" "photo-1600585154340-be6161a56a0c" "photo-1512917774080-9991f1c4c750" "photo-1600607687939-ce8a6c25118c" "photo-1600566753190-17f0baa2a6c3" "photo-1600585154526-990dced4db0d" "photo-1560448204-e02f11c3d0e2" "photo-1600573472591-ee6c8e695c75" "photo-1600047509807-ba8f99d2cdde" "photo-1583608205776-bfd35f0d9f83" "photo-1570129477492-45c003edd2be" "photo-1605276374104-dee2a0ed3cd6" "photo-1613490493576-7fde63acd811" "photo-1600210492493-0946911123ea" "photo-1512918728675-ed5a9ecdebfd" "photo-1600566752355-35792bedcfea" "photo-1600573472556-e636c2acda88" -}}
+  {{- $firstChar := substr $hash 0 1 -}}
+  {{- $index := 0 -}}
+  {{- if eq $firstChar "0" -}}{{- $index = 0 -}}
+  {{- else if eq $firstChar "1" -}}{{- $index = 1 -}}
+  {{- else if eq $firstChar "2" -}}{{- $index = 2 -}}
+  {{- else if eq $firstChar "3" -}}{{- $index = 3 -}}
+  {{- else if eq $firstChar "4" -}}{{- $index = 4 -}}
+  {{- else if eq $firstChar "5" -}}{{- $index = 5 -}}
+  {{- else if eq $firstChar "6" -}}{{- $index = 6 -}}
+  {{- else if eq $firstChar "7" -}}{{- $index = 7 -}}
+  {{- else if eq $firstChar "8" -}}{{- $index = 8 -}}
+  {{- else if eq $firstChar "9" -}}{{- $index = 9 -}}
+  {{- else if eq $firstChar "a" -}}{{- $index = 10 -}}
+  {{- else if eq $firstChar "b" -}}{{- $index = 11 -}}
+  {{- else if eq $firstChar "c" -}}{{- $index = 12 -}}
+  {{- else if eq $firstChar "d" -}}{{- $index = 13 -}}
+  {{- else if eq $firstChar "e" -}}{{- $index = 14 -}}
+  {{- else if eq $firstChar "f" -}}{{- $index = 15 -}}
+  {{- end -}}
+  {{- $index = mod $index (len $images) -}}
+  {{- $imageId := index $images $index -}}
+https://images.unsplash.com/{{ $imageId }}?w={{ $width }}&h={{ $height }}&fit=crop&auto=format&q=80&sig={{ $hash }}
+{{- end -}}

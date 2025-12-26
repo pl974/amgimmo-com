@@ -1,0 +1,49 @@
+{{/* Card Overlay — Style Magazine */}}
+<article class="article-card reveal">
+  <a href="{{ .Permalink }}" class="card-link">
+    <div class="card-image">
+      {{ $image := .Params.image | default "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=600&q=80" }}
+      <img src="{{ $image }}" alt="{{ .Title }}" loading="lazy">
+      <div class="card-overlay"></div>
+      <div class="card-arrow">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <line x1="7" y1="17" x2="17" y2="7"/>
+          <polyline points="7 7 17 7 17 17"/>
+        </svg>
+      </div>
+    </div>
+    <div class="card-content-overlay">
+      {{ with .Params.categories }}
+      <span class="card-category">{{ index . 0 }}</span>
+      {{ else }}
+      {{ with .Section }}
+      <span class="card-category">{{ . | humanize }}</span>
+      {{ end }}
+      {{ end }}
+      <h3 class="card-title">{{ .Title }}</h3>
+      {{ with .Description }}
+      <p class="card-excerpt">{{ . }}</p>
+      {{ else }}
+      <p class="card-excerpt">{{ .Summary | truncate 120 }}</p>
+      {{ end }}
+      <div class="card-meta">
+        <span class="card-date">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <rect x="3" y="4" width="18" height="18" rx="2" ry="2"/>
+            <line x1="16" y1="2" x2="16" y2="6"/>
+            <line x1="8" y1="2" x2="8" y2="6"/>
+            <line x1="3" y1="10" x2="21" y2="10"/>
+          </svg>
+          {{ .Date.Format "2 Jan 2006" }}
+        </span>
+        <span class="card-read-time">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <circle cx="12" cy="12" r="10"/>
+            <polyline points="12 6 12 12 16 14"/>
+          </svg>
+          {{ .ReadingTime }} min
+        </span>
+      </div>
+    </div>
+  </a>
+</article>

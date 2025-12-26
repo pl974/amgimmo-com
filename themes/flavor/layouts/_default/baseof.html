@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="{{ .Site.Language.Lang | default "fr" }}">
+<head>
+  {{- partial "head.html" . -}}
+</head>
+<body class="site">
+  <a href="#main" class="skip-link">Aller au contenu principal</a>
+  
+  {{/* Header */}}
+  {{ $headerType := .Site.Data.spin.components.header | default 1 }}
+  {{ partial (printf "headers/header-%d.html" $headerType) . }}
+  
+  <main id="main" class="site__main" role="main">
+    {{- block "main" . }}{{- end }}
+  </main>
+  
+  {{/* Footer */}}
+  {{ $footerType := .Site.Data.spin.components.footer | default 0 }}
+  {{ partial (printf "footers/footer-%d.html" $footerType) . }}
+  
+  <script src="{{ "js/main.js" | relURL }}" defer></script>
+</body>
+</html>

@@ -1,0 +1,57 @@
+{{/*
+  Card 3: Overlay
+  
+  Image pleine avec gradient et texte superposé.
+  Design magazine très visuel.
+  Best for: Sites visuels, immobilier, magazine
+*/}}
+
+{{ $page := .page }}
+{{ $Site := .Site }}
+{{ $index := .index | default 0 }}
+
+<article class="card card--overlay">
+  <a href="{{ $page.Permalink }}" class="card__link">
+    
+    {{/* Image - toujours via le partial */}}
+    <figure class="card__media">
+      <img 
+        src="{{ partial "image.html" (dict "page" $page "width" 600 "height" 450 "context" "card") }}" 
+        alt="{{ $page.Title }}" 
+        class="card__img"
+        loading="lazy"
+      >
+      <div class="card__gradient"></div>
+    </figure>
+    
+    {{/* Contenu */}}
+    <div class="card__body">
+      
+      {{/* Catégorie */}}
+      {{ with $page.Params.categories }}
+      {{ range first 1 . }}
+      <span class="card__category">{{ . }}</span>
+      {{ end }}
+      {{ end }}
+      
+      {{/* Titre */}}
+      <h3 class="card__title">{{ $page.Title }}</h3>
+      
+      {{/* Meta */}}
+      <div class="card__meta">
+        <time class="card__date" datetime="{{ $page.Date.Format "2006-01-02" }}">
+          {{ $page.Date.Format "2 Jan 2006" }}
+        </time>
+      </div>
+      
+      {{/* Flèche */}}
+      <span class="card__arrow" aria-hidden="true">
+        <svg width="20" height="20" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
+        </svg>
+      </span>
+      
+    </div>
+    
+  </a>
+</article>

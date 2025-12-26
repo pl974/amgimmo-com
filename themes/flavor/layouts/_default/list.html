@@ -1,0 +1,35 @@
+{{ define "main" }}
+
+<section class="archive">
+  <div class="archive__container">
+    
+    {{/* Header */}}
+    <header class="archive__header">
+      <nav class="archive__breadcrumb" aria-label="Fil d'Ariane">
+        <a href="/" class="archive__breadcrumb-link">Accueil</a>
+        <span class="archive__breadcrumb-sep">/</span>
+        <span class="archive__breadcrumb-current">{{ .Title }}</span>
+      </nav>
+      <h1 class="archive__title">{{ .Title }}</h1>
+      {{ with .Description }}
+      <p class="archive__description">{{ . }}</p>
+      {{ end }}
+      <div class="archive__meta">
+        <span class="archive__count">{{ len .Pages }} article{{ if gt (len .Pages) 1 }}s{{ end }}</span>
+      </div>
+    </header>
+    
+    {{/* Articles Grid */}}
+    <div class="archive__content">
+      {{ $gridType := .Site.Data.spin.components.grid | default 0 }}
+      {{ $cardType := .Site.Data.spin.components.card | default 3 }}
+      {{ partial (printf "grids/grid-%d.html" $gridType) (dict "pages" .Pages "cardType" $cardType "Site" .Site) }}
+    </div>
+    
+    {{/* Pagination */}}
+    {{ template "_internal/pagination.html" . }}
+    
+  </div>
+</section>
+
+{{ end }}

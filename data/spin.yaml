@@ -1,0 +1,81 @@
+# =============================================================================
+# Spin Configuration — AMG Immobilier
+# Design élégant et premium pour site immobilier alpin
+# =============================================================================
+
+# Hash calculé: amgimmo.com = 1108
+# Composants sélectionnés manuellement pour éviter les footprints
+
+components:
+  # Header 1: Modern Transparent avec glassmorphism
+  header: 1
+  
+  # Hero 2: Texte Minimal - élégant et éditorial
+  hero: 2
+  
+  # Sections homepage
+  sections:
+    - 0   # Latest Articles
+    - 1   # Categories Grid  
+    - 7   # Newsletter Banner
+  
+  # Grid 0: 3 colonnes responsive
+  grid: 0
+  
+  # Card 3: Overlay - très visuel avec gradient
+  card: 3
+  
+  # Footer 0: 4 colonnes complet
+  footer: 0
+
+# Palette personnalisée — Alpes (bleu glacier + ardoise)
+palette:
+  name: "Alpine"
+  primary: "#1e3a5f"
+  primary_light: "#2d5a8a"
+  primary_dark: "#142740"
+  secondary: "#334155"
+  accent: "#d97706"
+  background: "#fafbfc"
+  surface: "#ffffff"
+  text: "#0f172a"
+  text_muted: "#64748b"
+  border: "#e2e8f0"
+
+# Typographie — Editorial (Lora + Merriweather Sans)
+fonts:
+  name: "Editorial"
+  heading: "'Lora', Georgia, serif"
+  body: "'Merriweather Sans', -apple-system, sans-serif"
+  mono: "'IBM Plex Mono', monospace"
+  link: "https://fonts.googleapis.com/css2?family=Lora:wght@400;500;600;700&family=Merriweather+Sans:wght@400;600&family=IBM+Plex+Mono&display=swap"
+
+# Métadonnées site
+meta:
+  domain: "amgimmo.com"
+  locale: "fr_FR"
+  type: "blog"
+  theme: "immobilier"
+
+# Catégories eReferer
+ereferer:
+  categories:
+    - "Immobilier"
+    - "Travaux et Batiment > Maison"
+    - "Finance & Assurance > Credits"
+    - "Voyage & Tourisme"
+  description: "Magazine immobilier Haute-Savoie : marché local, vie frontalière Suisse, conseils achat et investissement. Contenus experts pour acquéreurs et investisseurs région alpine."
+
+# Images par défaut (Unsplash - haute qualité)
+images:
+  hero: "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=1600&h=900&fit=crop"
+  fallback: "https://images.unsplash.com/photo-1580587771525-78b9dba3b914?w=800&h=600&fit=crop"
+  collection:
+    - "photo-1506905925346-21bda4d32df4"  # Alpes
+    - "photo-1580587771525-78b9dba3b914"  # Maison moderne
+    - "photo-1564013799919-ab600027ffc6"  # Villa
+    - "photo-1600596542815-ffad4c1539a9"  # Maison luxe
+    - "photo-1600585154340-be6161a56a0c"  # Intérieur
+    - "photo-1512917774080-9991f1c4c750"  # Appartement
+    - "photo-1600607687939-ce8a6c25118c"  # Salon
+    - "photo-1600566753190-17f0baa2a6c3"  # Cuisine

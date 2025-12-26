@@ -1,0 +1,328 @@
+/* ==============================================================================
+   AMG IMMO — Hero Slider Carousel
+   Presentation immersive des biens et du territoire
+   ============================================================================== */
+
+.hero-slider {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  min-height: 600px;
+  max-height: 900px;
+  overflow: hidden;
+}
+
+.hero-slides {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+.hero-slide {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity var(--transition-slower), visibility var(--transition-slower);
+}
+
+.hero-slide.active {
+  opacity: 1;
+  visibility: visible;
+}
+
+/* Image de fond */
+.hero-slide-bg {
+  position: absolute;
+  inset: 0;
+}
+
+.hero-slide-bg img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transform: scale(1);
+  transition: transform 8s ease-out;
+}
+
+.hero-slide.active .hero-slide-bg img {
+  transform: scale(1.05);
+}
+
+/* Overlay gradient */
+.hero-slide-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to bottom,
+    rgba(30, 58, 95, 0.3) 0%,
+    rgba(30, 58, 95, 0.5) 50%,
+    rgba(30, 58, 95, 0.8) 100%
+  );
+}
+
+/* Contenu du slide */
+.hero-slide-content {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  height: 100%;
+  max-width: var(--container-xl);
+  margin: 0 auto;
+  padding: var(--header-height) var(--space-6) var(--space-20);
+}
+
+@media (min-width: 768px) {
+  .hero-slide-content {
+    padding: var(--header-height) var(--space-8) var(--space-24);
+  }
+}
+
+.hero-slide-title {
+  font-family: var(--font-heading);
+  font-size: var(--text-4xl);
+  font-weight: var(--font-bold);
+  color: var(--color-surface);
+  line-height: var(--leading-tight);
+  margin-bottom: var(--space-4);
+  max-width: 700px;
+  opacity: 0;
+  transform: translateY(30px);
+  transition: all 0.8s ease 0.2s;
+}
+
+@media (min-width: 768px) {
+  .hero-slide-title {
+    font-size: var(--text-5xl);
+  }
+}
+
+@media (min-width: 1024px) {
+  .hero-slide-title {
+    font-size: var(--text-6xl);
+  }
+}
+
+.hero-slide.active .hero-slide-title {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.hero-slide-subtitle {
+  font-size: var(--text-lg);
+  color: rgba(255, 255, 255, 0.9);
+  max-width: 550px;
+  margin-bottom: var(--space-8);
+  opacity: 0;
+  transform: translateY(20px);
+  transition: all 0.8s ease 0.4s;
+}
+
+@media (min-width: 768px) {
+  .hero-slide-subtitle {
+    font-size: var(--text-xl);
+  }
+}
+
+.hero-slide.active .hero-slide-subtitle {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.hero-slide-cta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-4);
+  opacity: 0;
+  transform: translateY(20px);
+  transition: all 0.8s ease 0.6s;
+}
+
+.hero-slide.active .hero-slide-cta {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.hero-slide-cta .btn-primary {
+  background: var(--color-accent);
+  color: var(--color-surface);
+}
+
+.hero-slide-cta .btn-primary:hover {
+  background: #d4a017;
+}
+
+.hero-slide-cta .btn-secondary {
+  border-color: var(--color-surface);
+  color: var(--color-surface);
+}
+
+.hero-slide-cta .btn-secondary:hover {
+  background: var(--color-surface);
+  color: var(--color-primary);
+}
+
+/* Navigation du slider */
+.hero-nav {
+  position: absolute;
+  bottom: var(--space-8);
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  align-items: center;
+  gap: var(--space-6);
+  z-index: 10;
+}
+
+.hero-dots {
+  display: flex;
+  gap: var(--space-3);
+}
+
+.hero-dot {
+  width: 12px;
+  height: 12px;
+  border-radius: var(--radius-full);
+  background: rgba(255, 255, 255, 0.4);
+  border: none;
+  cursor: pointer;
+  transition: all var(--transition-fast);
+  position: relative;
+}
+
+.hero-dot::before {
+  content: '';
+  position: absolute;
+  inset: -4px;
+  border: 2px solid transparent;
+  border-radius: var(--radius-full);
+  transition: border-color var(--transition-fast);
+}
+
+.hero-dot:hover {
+  background: rgba(255, 255, 255, 0.7);
+}
+
+.hero-dot.active {
+  background: var(--color-accent);
+}
+
+.hero-dot.active::before {
+  border-color: var(--color-accent);
+}
+
+/* Fleches de navigation */
+.hero-arrows {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  right: 0;
+  transform: translateY(-50%);
+  display: flex;
+  justify-content: space-between;
+  padding: 0 var(--space-4);
+  pointer-events: none;
+  z-index: 10;
+}
+
+@media (min-width: 768px) {
+  .hero-arrows {
+    padding: 0 var(--space-8);
+  }
+}
+
+.hero-arrow {
+  width: 48px;
+  height: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(8px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: var(--radius-full);
+  color: var(--color-surface);
+  cursor: pointer;
+  pointer-events: auto;
+  transition: all var(--transition-fast);
+}
+
+.hero-arrow:hover {
+  background: rgba(255, 255, 255, 0.25);
+  transform: scale(1.1);
+}
+
+.hero-arrow svg {
+  width: 24px;
+  height: 24px;
+}
+
+/* Progress bar */
+.hero-progress {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: rgba(255, 255, 255, 0.2);
+  z-index: 10;
+}
+
+.hero-progress-bar {
+  height: 100%;
+  background: var(--color-accent);
+  width: 0;
+  transition: width 0.1s linear;
+}
+
+/* Scroll indicator */
+.hero-scroll {
+  position: absolute;
+  bottom: var(--space-8);
+  right: var(--space-8);
+  display: none;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-2);
+  color: var(--color-surface);
+  font-size: var(--text-xs);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  opacity: 0.7;
+  z-index: 10;
+}
+
+@media (min-width: 1024px) {
+  .hero-scroll {
+    display: flex;
+  }
+}
+
+.hero-scroll-icon {
+  width: 24px;
+  height: 38px;
+  border: 2px solid currentColor;
+  border-radius: 12px;
+  position: relative;
+}
+
+.hero-scroll-icon::before {
+  content: '';
+  position: absolute;
+  top: 6px;
+  left: 50%;
+  width: 4px;
+  height: 8px;
+  margin-left: -2px;
+  background: currentColor;
+  border-radius: 2px;
+  animation: scrollBounce 1.5s ease-in-out infinite;
+}
+
+@keyframes scrollBounce {
+  0%, 100% { transform: translateY(0); opacity: 1; }
+  50% { transform: translateY(6px); opacity: 0.5; }
+}

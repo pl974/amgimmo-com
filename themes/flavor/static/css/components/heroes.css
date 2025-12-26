@@ -1,0 +1,169 @@
+/* =============================================================================
+   HEROES — Hero Sections
+   ============================================================================= */
+
+/* Hero Base */
+.hero {
+  position: relative;
+  overflow: hidden;
+}
+
+/* Hero Minimal — Typographic focus */
+.hero--minimal {
+  min-height: 70vh;
+  display: flex;
+  align-items: center;
+  padding-top: calc(var(--header-height) + var(--space-16));
+  padding-bottom: var(--space-16);
+  background: linear-gradient(
+    135deg,
+    var(--color-background) 0%,
+    #f1f5f9 50%,
+    var(--color-background) 100%
+  );
+}
+
+.hero__canvas {
+  width: 100%;
+  max-width: var(--container-xl);
+  margin-inline: auto;
+  padding-inline: var(--space-4);
+}
+
+@media (min-width: 768px) {
+  .hero__canvas {
+    padding-inline: var(--space-8);
+  }
+}
+
+/* Decoration */
+.hero__decoration {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  overflow: hidden;
+}
+
+.hero__line {
+  position: absolute;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    var(--color-border),
+    transparent
+  );
+}
+
+.hero__line--1 {
+  top: 30%;
+  left: 0;
+  right: 0;
+  height: 1px;
+  opacity: 0.5;
+}
+
+.hero__line--2 {
+  top: 70%;
+  left: 0;
+  right: 0;
+  height: 1px;
+  opacity: 0.3;
+}
+
+/* Header */
+.hero__header {
+  position: relative;
+  max-width: 800px;
+}
+
+.hero__label {
+  display: inline-block;
+  margin-bottom: var(--space-4);
+  padding: var(--space-2) var(--space-4);
+  font-size: var(--text-sm);
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--color-primary);
+  background-color: rgba(30, 58, 95, 0.08);
+  border-radius: var(--radius-full);
+}
+
+.hero__statement {
+  font-family: var(--font-heading);
+  font-size: clamp(2rem, 5vw, 3.5rem);
+  font-weight: 500;
+  line-height: 1.2;
+  color: var(--color-text);
+  letter-spacing: -0.02em;
+}
+
+.hero__highlight {
+  color: var(--color-primary);
+  font-style: italic;
+}
+
+.hero__subtitle {
+  margin-top: var(--space-6);
+  font-size: var(--text-lg);
+  line-height: var(--leading-relaxed);
+  color: var(--color-text-muted);
+  max-width: 600px;
+}
+
+/* Footer / Quick Nav */
+.hero__footer {
+  margin-top: var(--space-12);
+}
+
+.hero__quick-nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-3);
+}
+
+.hero__quick-link {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  padding: var(--space-3) var(--space-5);
+  font-size: var(--text-sm);
+  font-weight: 500;
+  color: var(--color-secondary);
+  background-color: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-full);
+  transition: all var(--duration-fast) var(--ease-default);
+}
+
+.hero__quick-link:hover {
+  color: var(--color-primary);
+  border-color: var(--color-primary);
+  transform: translateX(4px);
+}
+
+.hero__quick-icon {
+  transition: transform var(--duration-fast) var(--ease-default);
+}
+
+.hero__quick-link:hover .hero__quick-icon {
+  transform: translateX(3px);
+}
+
+@media (min-width: 768px) {
+  .hero--minimal {
+    min-height: 80vh;
+  }
+  
+  .hero__label {
+    margin-bottom: var(--space-6);
+  }
+  
+  .hero__footer {
+    margin-top: var(--space-16);
+  }
+  
+  .hero__quick-link {
+    padding: var(--space-3) var(--space-6);
+  }
+}

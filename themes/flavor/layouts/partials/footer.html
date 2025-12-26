@@ -1,0 +1,107 @@
+{{/* Footer 4 Colonnes — AMG IMMO */}}
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-main">
+      
+      {{/* Brand column */}}
+      <div class="footer-brand">
+        <a href="{{ .Site.BaseURL }}" class="footer-logo">
+          <span class="footer-logo-icon">
+            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M3 9L12 2L21 9V20C21 20.5304 20.7893 21.0391 20.4142 21.4142C20.0391 21.7893 19.5304 22 19 22H5C4.46957 22 3.96086 21.7893 3.58579 21.4142C3.21071 21.0391 3 20.5304 3 20V9Z" fill="currentColor"/>
+              <path d="M9 22V12H15V22" fill="currentColor" fill-opacity="0.3"/>
+            </svg>
+          </span>
+          <span class="footer-logo-text">AMG Immo</span>
+        </a>
+        <p class="footer-description">
+          Votre agence immobiliere au coeur du Pays Rochois. Expertise locale depuis 2003 pour tous vos projets : achat, vente, location et gestion locative.
+        </p>
+        <div class="footer-social">
+          {{ with .Site.Params.facebook }}
+          <a href="{{ . }}" class="social-link" target="_blank" rel="noopener" aria-label="Facebook">
+            <svg viewBox="0 0 24 24" fill="currentColor">
+              <path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/>
+            </svg>
+          </a>
+          {{ end }}
+          <a href="https://www.linkedin.com/company/amg-immobilier" class="social-link" target="_blank" rel="noopener" aria-label="LinkedIn">
+            <svg viewBox="0 0 24 24" fill="currentColor">
+              <path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6zM2 9h4v12H2zM4 2a2 2 0 110 4 2 2 0 010-4z"/>
+            </svg>
+          </a>
+        </div>
+      </div>
+      
+      {{/* Navigation: Services */}}
+      <div class="footer-nav-column">
+        <h4>Nos services</h4>
+        <ul class="footer-nav-list">
+          <li><a href="/acheter/" class="footer-nav-link">Acheter un bien</a></li>
+          <li><a href="/louer/" class="footer-nav-link">Louer un bien</a></li>
+          <li><a href="/vendre/" class="footer-nav-link">Vendre votre bien</a></li>
+          <li><a href="/gestion-locative/" class="footer-nav-link">Gestion locative</a></li>
+          <li><a href="/estimation/" class="footer-nav-link">Estimation gratuite</a></li>
+        </ul>
+      </div>
+      
+      {{/* Navigation: Quartiers */}}
+      <div class="footer-nav-column">
+        <h4>Nos quartiers</h4>
+        <ul class="footer-nav-list">
+          {{ $villes := .Site.Data.site.villes }}
+          {{ range first 6 $villes }}
+          <li><a href="/quartiers/{{ .slug }}/" class="footer-nav-link">{{ .name }}</a></li>
+          {{ end }}
+        </ul>
+      </div>
+      
+      {{/* Contact */}}
+      <div class="footer-nav-column">
+        <h4>Contact</h4>
+        <div class="footer-contact-item">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/>
+            <circle cx="12" cy="10" r="3"/>
+          </svg>
+          <span>{{ .Site.Params.address }}<br>{{ .Site.Params.postalCode }} {{ .Site.Params.city }}</span>
+        </div>
+        <div class="footer-contact-item">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z"/>
+          </svg>
+          <a href="tel:{{ .Site.Params.phone }}">{{ .Site.Params.phone }}</a>
+        </div>
+        <div class="footer-contact-item">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
+            <polyline points="22,6 12,13 2,6"/>
+          </svg>
+          <a href="mailto:{{ .Site.Params.email }}">{{ .Site.Params.email }}</a>
+        </div>
+        <div class="footer-contact-item">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <circle cx="12" cy="12" r="10"/>
+            <polyline points="12 6 12 12 16 14"/>
+          </svg>
+          <span>Lun-Ven : 9h-12h / 14h-19h<br>Sam : 9h-12h</span>
+        </div>
+      </div>
+      
+    </div>
+    
+    {{/* Footer bottom */}}
+    <div class="footer-bottom">
+      <p class="footer-copyright">
+        {{ now.Year }} {{ .Site.Title }}. Tous droits reserves.
+        {{ with .Site.Params.agence.carte_pro }}Carte professionnelle {{ . }}{{ end }}
+      </p>
+      <nav class="footer-legal">
+        {{ range .Site.Menus.footer }}
+        <a href="{{ .URL }}" class="footer-legal-link">{{ .Name }}</a>
+        {{ end }}
+      </nav>
+    </div>
+    
+  </div>
+</footer>

@@ -1,0 +1,19 @@
+{{/*
+  Grid 0: 3 Colonnes
+  
+  Grille responsive: 1 → 2 → 3 colonnes.
+  Animation stagger à l'entrée.
+  Best for: Standard, polyvalent
+*/}}
+
+{{ $pages := .pages }}
+{{ $cardType := .cardType | default 0 }}
+{{ $Site := .Site }}
+
+<div class="grid grid--3col">
+  {{ range $index, $page := $pages }}
+  <div class="grid__item" style="--stagger: {{ $index }}">
+    {{ partial (printf "cards/card-%d.html" $cardType) (dict "page" $page "Site" $Site "index" $index) }}
+  </div>
+  {{ end }}
+</div>

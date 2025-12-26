@@ -1,0 +1,13 @@
+User-agent: *
+Allow: /
+
+# Sitemaps
+Sitemap: https://www.amgimmo.com/sitemap.xml
+
+# Crawl-delay for politeness
+Crawl-delay: 1
+
+# Block common bot traps
+Disallow: /search/
+Disallow: /*?*
+Disallow: /*.json$

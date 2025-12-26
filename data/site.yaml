@@ -1,0 +1,143 @@
+# ==============================================================================
+# AMG IMMO — Configuration du theme
+# Composants personnalises pour immobilier premium
+# ==============================================================================
+
+# Composants selectionnes
+header: 1          # Modern Transparent — elegance professionnelle
+hero: 12           # Slider Carousel — parfait pour biens immobiliers
+section1: 2        # Featured Article — mise en avant
+section2: 8        # Stats Numbers — credibilite chiffree
+section3: 6        # Testimonials Grid — preuve sociale
+grid: 1            # Sidebar — blog avec widgets
+card: 3            # Overlay — style magazine
+footer: 0          # 4 Colonnes — professionnel complet
+
+# Palette personnalisee — Haute-Savoie Alpine
+palette:
+  name: "Alpine"
+  primary: "#1e3a5f"       # Bleu nuit profond
+  primary_light: "#2d5a8a"
+  primary_dark: "#0f1f33"
+  secondary: "#44403c"     # Pierre chaude
+  accent: "#b8860b"        # Or ancien discret
+  background: "#fafaf9"    # Blanc casse
+  surface: "#ffffff"
+  text: "#1c1917"
+  text_muted: "#57534e"
+  border: "#e7e5e4"
+  gradient_start: "#1e3a5f"
+  gradient_end: "#2d5a8a"
+
+# Typographie — T1 Classic adapte
+typography:
+  name: "Alpine Classic"
+  heading: "'Cormorant Garamond', Georgia, serif"
+  body: "'Source Sans 3', -apple-system, sans-serif"
+  mono: "'Source Code Pro', monospace"
+  google_fonts: "https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Source+Sans+3:wght@400;500;600&display=swap"
+
+# Donnees Hero Slider
+hero_slides:
+  - title: "Votre projet immobilier en Haute-Savoie"
+    subtitle: "Appartements, maisons et terrains au coeur du Pays Rochois"
+    cta: "Decouvrir nos biens"
+    cta_url: "/acheter/"
+    image: "https://ark-content-generation-v2-ap-southeast-1.tos-ap-southeast-1.volces.com/seedream-3-0-t2i/021766761236598641a02d40a43d449f07de84c480b390dbef05c_0.jpeg?X-Tos-Algorithm=TOS4-HMAC-SHA256&X-Tos-Credential=AKLTYWJkZTExNjA1ZDUyNDc3YzhjNTM5OGIyNjBhNDcyOTQ%2F20251226%2Fap-southeast-1%2Ftos%2Frequest&X-Tos-Date=20251226T150041Z&X-Tos-Expires=86400&X-Tos-Signature=d9cd1bf80d92260ed4342a51620954906e594de116ea6da7948330f595e7a63b&X-Tos-SignedHeaders=host"
+  - title: "La Roche-sur-Foron"
+    subtitle: "Cite medievale entre Annecy et Geneve, un cadre de vie unique"
+    cta: "Explorer le quartier"
+    cta_url: "/quartiers/la-roche-sur-foron/"
+    image: "https://ark-content-generation-v2-ap-southeast-1.tos-ap-southeast-1.volces.com/seedream-3-0-t2i/021766761261595f9825d5f0df17daef396c99db060605435b7dd_0.jpeg?X-Tos-Algorithm=TOS4-HMAC-SHA256&X-Tos-Credential=AKLTYWJkZTExNjA1ZDUyNDc3YzhjNTM5OGIyNjBhNDcyOTQ%2F20251226%2Fap-southeast-1%2Ftos%2Frequest&X-Tos-Date=20251226T150105Z&X-Tos-Signature=441799f96eaa6673c6d8db324dd88a3f171b2c2b414f39aabd8de1576973e44f&X-Tos-SignedHeaders=host"
+  - title: "Estimation gratuite"
+    subtitle: "Vendez votre bien au meilleur prix avec notre expertise locale"
+    cta: "Estimer mon bien"
+    cta_url: "/vendre/"
+    image: "https://ark-content-generation-v2-ap-southeast-1.tos-ap-southeast-1.volces.com/seedream-3-0-t2i/02176676124948999f4740eadd3360aa6250e68d85f7ec7ad22ed_0.jpeg?X-Tos-Algorithm=TOS4-HMAC-SHA256&X-Tos-Credential=AKLTYWJkZTExNjA1ZDUyNDc3YzhjNTM5OGIyNjBhNDcyOTQ%2F20251226%2Fap-southeast-1%2Ftos%2Frequest&X-Tos-Date=20251226T150053Z&X-Tos-Expires=86400&X-Tos-Signature=8ee67e8609d6885ed14391e464a14596dba6a5b340b59a3b5fae6c5ab96fa7a5&X-Tos-SignedHeaders=host"
+
+# Statistiques pour Section Stats
+stats:
+  - value: "22"
+    label: "Annees d'expertise"
+    suffix: "ans"
+  - value: "850"
+    label: "Transactions realisees"
+    suffix: "+"
+  - value: "98"
+    label: "Clients satisfaits"
+    suffix: "%"
+  - value: "9"
+    label: "Communes couvertes"
+    suffix: ""
+
+# Temoignages
+testimonials:
+  - quote: "AMG Immobilier nous a accompagnes avec professionnalisme du debut a la fin. Leur connaissance du marche local fait vraiment la difference."
+    author: "Marie et Pierre D."
+    role: "Acquereurs a La Roche-sur-Foron"
+    rating: 5
+  - quote: "Vente realisee en moins de 2 mois au prix souhaite. L'estimation etait precise et le suivi impeccable."
+    author: "Jean-Claude M."
+    role: "Vendeur a Bonneville"
+    rating: 5
+  - quote: "Une equipe reactive et a l'ecoute. La gestion locative de notre bien est geree avec serieux depuis 5 ans."
+    author: "Sylvie R."
+    role: "Proprietaire bailleur"
+    rating: 5
+
+# Villes couvertes
+villes:
+  - name: "La Roche-sur-Foron"
+    slug: "la-roche-sur-foron"
+    cp: "74800"
+    population: "12000"
+    description: "Cite medievale classee, 2eme ville historique de Haute-Savoie"
+  - name: "Bonneville"
+    slug: "bonneville"
+    cp: "74130"
+    population: "13000"
+    description: "Prefecture de l'arrondissement, dynamisme economique"
+  - name: "Amancy"
+    slug: "amancy"
+    cp: "74800"
+    population: "2800"
+    description: "Village residentiel au calme, proche commodites"
+  - name: "Evires"
+    slug: "evires"
+    cp: "74570"
+    population: "1400"
+    description: "Commune rurale avec vue panoramique sur les Alpes"
+  - name: "Arenthon"
+    slug: "arenthon"
+    cp: "74800"
+    population: "2200"
+    description: "Cadre verdoyant aux portes de La Roche-sur-Foron"
+  - name: "Cornier"
+    slug: "cornier"
+    cp: "74800"
+    population: "1200"
+    description: "Petit village paisible, ideal pour familles"
+  - name: "Saint-Sixt"
+    slug: "saint-sixt"
+    cp: "74800"
+    population: "1100"
+    description: "Commune agricole avec caractere authentique"
+  - name: "Pers-Jussy"
+    slug: "pers-jussy"
+    cp: "74930"
+    population: "3200"
+    description: "En pleine expansion, acces rapide autoroute"
+  - name: "Scientrier"
+    slug: "scientrier"
+    cp: "74930"
+    population: "2100"
+    description: "Situation strategique entre Annecy et Geneve"
+
+# Informations agence
+agence:
+  nom: "AMG Immo"
+  siret: "447 723 792 00027"
+  carte_pro: "CPI 7401 2016 000 007 114"
+  garantie: "CEGC"
+  caisse_garantie: "30 000 EUR"
+  assurance_rcp: "MMA"

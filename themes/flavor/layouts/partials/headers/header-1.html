@@ -1,0 +1,58 @@
+{{/* 
+  Header 1: Modern Transparent
+  
+  Fond transparent → solide au scroll avec effet glassmorphism.
+  Logo à gauche, navigation principale, hamburger mobile.
+  Best for: Sites élégants, immobilier premium, portfolios
+*/}}
+
+<header class="header header--modern" id="header" role="banner">
+  <div class="header__container">
+    
+    {{/* Logo */}}
+    <a href="/" class="header__logo" aria-label="Accueil {{ .Site.Title }}">
+      <span class="header__logo-text">{{ .Site.Title }}</span>
+    </a>
+    
+    {{/* Navigation principale */}}
+    <nav class="header__nav" id="nav" role="navigation" aria-label="Navigation principale">
+      <ul class="header__menu">
+        {{ range .Site.Menus.main }}
+        <li class="header__menu-item">
+          <a href="{{ .URL }}" class="header__menu-link{{ if $.IsMenuCurrent "main" . }} header__menu-link--active{{ end }}">
+            {{ .Name }}
+          </a>
+        </li>
+        {{ end }}
+      </ul>
+    </nav>
+    
+    {{/* Bouton menu mobile */}}
+    <button 
+      class="header__toggle" 
+      id="nav-toggle" 
+      aria-expanded="false" 
+      aria-controls="mobile-menu"
+      aria-label="Ouvrir le menu"
+    >
+      <span class="header__toggle-bar"></span>
+      <span class="header__toggle-bar"></span>
+      <span class="header__toggle-bar"></span>
+    </button>
+    
+  </div>
+  
+  {{/* Menu mobile */}}
+  <div class="header__mobile-menu" id="mobile-menu" aria-hidden="true">
+    <nav class="header__mobile-nav" role="navigation" aria-label="Menu mobile">
+      <ul class="header__mobile-list">
+        {{ range .Site.Menus.main }}
+        <li class="header__mobile-item">
+          <a href="{{ .URL }}" class="header__mobile-link">{{ .Name }}</a>
+        </li>
+        {{ end }}
+      </ul>
+    </nav>
+  </div>
+  
+</header>
